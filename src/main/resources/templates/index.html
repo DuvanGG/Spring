@@ -12,6 +12,7 @@
 	<a th:href="@{/agregar}">Crear Persona</a>
 	<a th:href="@{/agregar}">Eliminar Persona</a>
 	<a th:href="@{/agregar}">Crear Persona</a>
+	
 	<br>
 	<br>
 
@@ -22,6 +23,8 @@
 				<th>Apellido</th>
 				<th>Email</th>
 				<th>Telefono</th>
+				<th>Editar</th>
+				<th>Eliminar</th>
 			</tr>
 
 
@@ -30,6 +33,8 @@
 				<td th:text="${persona.apellido}"></td>
 				<td th:text="${persona.email}"></td>
 				<td th:text="${persona.telefono}"></td>
+				<td><a th:href="@{/editar/} + ${persona.idPersona}" th:text="Editar"></a></td>
+				<td><a th:href="@{/eliminar/} + ${persona.idPersona}" th:text="Eliminar"></a></td>
 			</tr>
 		</table>
 	</div>
