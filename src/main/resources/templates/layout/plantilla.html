@@ -9,9 +9,14 @@
 	<header th:fragment="header">
 		<h1 th:text="#{plantilla.titulo}">Titulo</h1>
 	</header>
-	
+
 	<footer th:fragment="footer">
-		<p> [[#{plantilla.pie-pagina}]]  @Thymeleaf</p>
+		<div>
+			<br>
+			<a th:href="@{/(lang=es)}">ES</a> |
+			<a th:href="@{/(lang=en)}">EN</a> |
+		</div>
+		<span>[[#{plantilla.pie-pagina}]] @Thymeleaf</span>
 	</footer>
 
 
