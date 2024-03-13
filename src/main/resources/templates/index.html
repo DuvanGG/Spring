@@ -10,7 +10,7 @@
 	<header th:replace="layout/plantilla :: header" ></header>
 	<h2>Operaciones con Persona</h2>
 	
-	<a th:href="@{/agregar}" th:text="#{persona.crear}">Crear</a>
+	<a sec:authorize="hasRole('ROLE_ADMIN')" th:href="@{/agregar}" th:text="#{persona.crear}">Crear</a>
 	
 	
 	<br>
@@ -23,8 +23,8 @@
 				<th>Apellido</th>
 				<th>Email</th>
 				<th>Telefono</th>
-				<th>Editar</th>
-				<th>Eliminar</th>
+				<th sec:authorize="hasRole('ROLE_ADMIN')">Editar</th>
+				<th sec:authorize="hasRole('ROLE_ADMIN')">Eliminar</th>
 			</tr>
 
 
@@ -33,8 +33,8 @@
 				<td th:text="${persona.apellido}"></td>
 				<td th:text="${persona.email}"></td>
 				<td th:text="${persona.telefono}"></td>
-				<td><a th:href="@{/editar/} + ${persona.idPersona}" th:text="Editar"></a></td>
-				<td><a th:href="@{/eliminar(idPersona=${persona.idPersona})}" th:text="Eliminar"></a></td>
+				<td sec:authorize="hasRole('ROLE_ADMIN')"><a th:href="@{/editar/} + ${persona.idPersona}" th:text="Editar"></a></td>
+				<td sec:authorize="hasRole('ROLE_ADMIN')"><a th:href="@{/eliminar(idPersona=${persona.idPersona})}" th:text="Eliminar"></a></td>
 			</tr>
 		</table>
 	</div>
