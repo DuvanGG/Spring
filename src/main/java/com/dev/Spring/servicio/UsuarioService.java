@@ -2,6 +2,7 @@ package com.dev.Spring.servicio;
 
 import java.util.ArrayList;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -10,6 +11,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.dev.Spring.dao.IUsuarioDao;
 import com.dev.Spring.domain.Rol;
@@ -25,6 +27,7 @@ public class UsuarioService implements UserDetailsService{
 	private IUsuarioDao usuarioDao;
 	
 	@Override
+	@Transactional(readOnly=true)
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 		
 		Usuario usuario = usuarioDao.findByUsername(username);
